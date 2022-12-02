@@ -37,8 +37,6 @@ RSpec.describe User, type: :model do
   describe 'validations' do
     it { should validate_presence_of(:name) }
   end
-  
-
   context 'Write unit tests for User Model Methods' do
     it 'returns 0 for no post' do
       number_of_posts = first_user.recent_3_posts.count
