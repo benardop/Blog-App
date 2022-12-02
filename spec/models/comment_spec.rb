@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
   second_user = User.create(Name: 'Lilly', Photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
-                            Bio: 'Teacher from Poland.', posts_counter: 0)
+                            Bio: 'Teacher from Poland.')
 
   first_post = Post.create(user: second_user, title: 'Hello', text: 'This is my first post', comments_counter: 2,
                            likes_counter: 3)
