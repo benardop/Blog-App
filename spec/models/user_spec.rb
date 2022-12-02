@@ -1,8 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  first_user = User.create(Name: 'Tom', Photo: 'https://unsplash.com/photos/F_-0BxGuVvo', Bio: 'Teacher from Mexico.',
-                           posts_counter: 0)
+  first_user = User.create(Name: 'Tom', Photo: 'https://unsplash.com/photos/F_-0BxGuVvo', Bio: 'Teacher from Mexico.')
 
   first_post = Post.new(user: first_user, title: 'Hello', text: 'This is my first post', comments_counter: 2,
                         likes_counter: 3)
@@ -20,12 +19,12 @@ RSpec.describe User, type: :model do
     end
 
     it 'is valid with a name' do
-      first_user.name = 'Mavericks'
+      first_user.name = 'Benard'
       expect(first_user).to be_valid
     end
 
     it 'is not valid if posts_counter is not an integer' do
-      first_user.posts_counter = 'Balitaan'
+      first_user.posts_counter = 'Pacho'
       expect(first_user).to_not be_valid
     end
 
@@ -34,6 +33,11 @@ RSpec.describe User, type: :model do
       expect(first_user).to_not be_valid
     end
   end
+
+  describe 'validations' do
+    it { should validate_presence_of(:name) }
+  end
+  
 
   context 'Write unit tests for User Model Methods' do
     it 'returns 0 for no post' do
